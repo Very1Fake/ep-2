@@ -1,5 +1,6 @@
-from bottle import route
+from bottle import route, view
 
 @route('/')
+@view('index')
 def index():
-    return "Hello World!!1"
+    return
