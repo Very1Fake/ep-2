@@ -7,6 +7,11 @@ from bottle import post, request, view, get
 def index():
     return
 
+@get('/second_variant')
+@view('second_variant')
+def second_variant():
+    return
+
 @post('/api/second_variant')
 def second_variant_api():
     from time import sleep

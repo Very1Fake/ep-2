@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/style.css">
 
     <title>EP #2 - {{ title }}</title>
 </head>
 <body>
-    <nav class="py-2 bg-light border-bottom stiky-top">
+    <nav class="py-2 bg-light border-bottom sticky-top">
         <div class="container d-flex flex-wrap">
             <ul class="nav me-auto">
                 <li class="nav-item"><a href="/first_variant" class="nav-link link-dark px-2">First Variant</a></li>

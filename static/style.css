@@ -1,0 +1,6 @@
+.spinner-style {
+    --bs-spinner-width: 5rem;
+    --bs-spinner-height: 5rem;
+    --bs-spinner-border-width: 0.5em;
+    --bs-spinner-animation-speed: 0.75s;
+}
