@@ -12,9 +12,14 @@ def index():
 def second_variant():
     return
 
-@post('/api/second_variant')
-def second_variant_api():
-    from time import sleep
+@get('/first_variant')
+@view('first_variant')
+def first_variant():
+    return
+
+@post('/api/first_variant')
+def first_variant_api():
+    
     import random  # FIX
 
     # TODO Make validations
