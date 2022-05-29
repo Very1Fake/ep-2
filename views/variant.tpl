@@ -9,15 +9,54 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id deleniti natus deserunt
-            optio maiores ipsa suscipit possimus praesentium. Expedita incidunt consectetur doloremque exercitationem
-            alias sapiente iusto ipsum ad. Eos, ducimus!
-            Praesentium voluptatum vel blanditiis minus cupiditate delectus. Voluptatum animi exercitationem asperiores
-            beatae soluta laudantium doloribus aspernatur nesciunt eligendi dolorem consequatur consectetur aut a,
-            magnam pariatur eos porro. Magnam, nihil eaque.
-            Molestias quod alias voluptatibus? Iusto dignissimos eveniet, sequi earum accusantium at labore in similique
-            assumenda praesentium, pariatur impedit? Magnam totam autem esse numquam in, magni delectus ab saepe
-            architecto provident.</div>
+        <div class="modal modal-lg fade" id="theoryModal" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="theoryModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="theoryModalLabel">Variant Theory</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo reprehenderit aliquam, odit
+                        recusandae magni, magnam facilis accusamus aperiam atque obcaecati non est quia molestias ut
+                        libero, deleniti tenetur. Aliquam, temporibus!
+                        Quas possimus id fugiat ab pariatur recusandae repudiandae nemo ipsa debitis obcaecati cumque,
+                        dolore quae optio amet non totam illo. Dolore quo corporis assumenda eveniet nisi exercitationem
+                        nesciunt! Culpa, tenetur.
+                        Minima, atque, necessitatibus delectus sed voluptates nulla placeat amet saepe deserunt quidem,
+                        natus aspernatur sequi ducimus neque sapiente voluptas harum repellendus animi eos perferendis
+                        mollitia. Accusantium reprehenderit sit iure alias!
+                        Ad, soluta! Et quo ut amet eligendi error quis laboriosam inventore quisquam, eum culpa minima,
+                        libero illo nam rerum unde rem? Dolores molestiae, sed odit sapiente corporis ducimus tempore
+                        quo?
+                        Quod corporis eius molestias consequuntur unde, nulla sint ipsum, eligendi maiores fugit at
+                        rerum deserunt repellat maxime aliquam minus beatae nam, impedit laudantium eos placeat. Culpa
+                        vel facere vero praesentium?
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mb-4 row gy-3">
+            <div class="col-12">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id deleniti natus deserunt
+                optio maiores ipsa suscipit possimus praesentium. Expedita incidunt consectetur doloremque
+                exercitationem
+                alias sapiente iusto ipsum ad. Eos, ducimus!
+                Praesentium voluptatum vel blanditiis minus cupiditate delectus. Voluptatum animi exercitationem
+                asperiores
+                beatae soluta laudantium doloribus aspernatur nesciunt eligendi dolorem consequatur consectetur aut a,
+                magnam pariatur eos porro. Magnam, nihil eaque.
+                Molestias quod alias voluptatibus? Iusto dignissimos eveniet, sequi earum accusantium at labore in
+                similique
+                assumenda praesentium, pariatur impedit? Magnam totam autem esse numquam in, magni delectus ab saepe
+                architecto provident.
+            </div>
+            <div class="offset-md-10 col-md-2 col-sm-12">
+                <button type="button" class="btn btn-outline-primary btn-sm w-100" data-bs-toggle="modal"
+                    data-bs-target="#theoryModal">Read theory</button>
+            </div>
+        </div>
         <div class="col-3">
             <div class="card">
                 <div class="card-header">Arguments</div>
