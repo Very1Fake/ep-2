@@ -9,6 +9,12 @@ def index():
     return
 
 
+@get('/about')
+@view('about')
+def about():
+    return
+
+
 @get('/first_variant')
 @view('first_variant')
 def first_variant():
