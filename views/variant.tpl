@@ -8,7 +8,7 @@
 % end
 
 <div class="container">
-    <div class="row">
+    <div class="row gy-3">
         <div class="modal modal-lg fade" id="theoryModal" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="theoryModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -37,27 +37,30 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 mb-4 row gy-3">
-            <div class="col-12">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id deleniti natus deserunt
-                optio maiores ipsa suscipit possimus praesentium. Expedita incidunt consectetur doloremque
-                exercitationem
-                alias sapiente iusto ipsum ad. Eos, ducimus!
-                Praesentium voluptatum vel blanditiis minus cupiditate delectus. Voluptatum animi exercitationem
-                asperiores
-                beatae soluta laudantium doloribus aspernatur nesciunt eligendi dolorem consequatur consectetur aut a,
-                magnam pariatur eos porro. Magnam, nihil eaque.
-                Molestias quod alias voluptatibus? Iusto dignissimos eveniet, sequi earum accusantium at labore in
-                similique
-                assumenda praesentium, pariatur impedit? Magnam totam autem esse numquam in, magni delectus ab saepe
-                architecto provident.
-            </div>
-            <div class="offset-md-10 col-md-2 col-sm-12">
-                <button type="button" class="btn btn-outline-primary btn-sm w-100" data-bs-toggle="modal"
-                    data-bs-target="#theoryModal">Read theory</button>
+        <div class="col-12">
+            <div class="row gy-3">
+                <div class="col-12">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id deleniti natus deserunt
+                    optio maiores ipsa suscipit possimus praesentium. Expedita incidunt consectetur doloremque
+                    exercitationem
+                    alias sapiente iusto ipsum ad. Eos, ducimus!
+                    Praesentium voluptatum vel blanditiis minus cupiditate delectus. Voluptatum animi exercitationem
+                    asperiores
+                    beatae soluta laudantium doloribus aspernatur nesciunt eligendi dolorem consequatur consectetur aut
+                    a,
+                    magnam pariatur eos porro. Magnam, nihil eaque.
+                    Molestias quod alias voluptatibus? Iusto dignissimos eveniet, sequi earum accusantium at labore in
+                    similique
+                    assumenda praesentium, pariatur impedit? Magnam totam autem esse numquam in, magni delectus ab saepe
+                    architecto provident.
+                </div>
+                <div class="offset-md-10 col-md-2 col-sm-12">
+                    <button type="button" class="btn btn-outline-primary btn-sm w-100" data-bs-toggle="modal"
+                        data-bs-target="#theoryModal">Read theory</button>
+                </div>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-xl-3 col-sm-12">
             <div class="card">
                 <div class="card-header">Arguments</div>
                 <div class="card-body">
@@ -102,7 +105,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-9">
+        <div class="col-xl-9 col-sm-12 mb-3">
             <div class="d-flex align-items-center text-center h-100" id="no_result">
                 <h3 class="display-3 w-100">No Result Yet</h3>
             </div>
