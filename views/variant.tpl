@@ -67,11 +67,15 @@
             <div class="d-flex align-items-center text-center h-100" id="no_result">
                 <h3 class="display-3 w-100">No Result Yet</h3>
             </div>
-            <div class="row" id="error_view">
+            <div class="row h-100 align-items-center" id="error_view" style="display: none!important;">
                 <div class="col"></div>
                 <div class="col-6">
-                    <div class="card">
-
+                    <div class="card text-bg-danger mb-3">
+                        <div class="card-header" id="error_header">Request failed</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Error message:</h5>
+                            <p class="card-text" id="error_message">Some error message.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col"></div>
@@ -92,10 +96,10 @@
                             <th rowspan="2" scope="col">Time between two consecutive requests</th>
                             <th rowspan="2" scope="col">Moment of receipt of the request</th>
                             % if variant == 2:
-                                <th colspan="3" scope="col">Moment request was accepted</th>
+                            <th colspan="3" scope="col">Moment request was accepted</th>
                             % end
                             % if variant == 3:
-                                <th colspan="4" scope="col">Moment request was accepted</th>
+                            <th colspan="4" scope="col">Moment request was accepted</th>
                             % end
                             <th colspan="2" scope="col">Counter</th>
                         </tr>
@@ -104,7 +108,7 @@
                             <th>2</th>
                             <th>3</th>
                             % if variant == 3:
-                                <th>4</th>
+                            <th>4</th>
                             % end
                             <th>Serviced requests</th>
                             <th>Rejections</th>
