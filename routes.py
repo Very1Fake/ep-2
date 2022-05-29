@@ -9,16 +9,30 @@ def index():
     return
 
 
-@get('/second_variant')
-@view('second_variant')
-def second_variant():
-    return
-
-
 @get('/first_variant')
 @view('first_variant')
 def first_variant():
     return
+
+
+@get('/second_variant')
+@view('variant')
+def second_variant():
+    return {
+        'title': 'Second Variant',
+        'link': '/second_variant',
+        'variant': 2,
+    }
+
+
+@get('/third_variant')
+@view('variant')
+def third_variant():
+    return {
+        'title': 'Third Variant',
+        'link': '/third_variant',
+        'variant': 3,
+    }
 
 
 @post('/api/first_variant')

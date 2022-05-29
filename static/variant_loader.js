@@ -2,6 +2,7 @@
     'use strict'
 
     const forms = document.querySelectorAll('.needs-validation');
+    const target = document.getElementById('target');
     const button = document.getElementById('btn_submit');
     const spinner = document.getElementById('loader_spinner');
     const no_result = document.getElementById('no_result');
@@ -32,7 +33,7 @@
             if (is_checked) {
                 no_result.style.setProperty('display', 'none', 'important');
                 setStateToLoading();
-                fetch('/api/second_variant', {
+                fetch(target.value, {
                     method: 'POST',
                     body: new FormData(form),
                     mode: 'cors',
@@ -60,7 +61,7 @@
                                 th.innerHTML = row[0];
                                 tr.appendChild(th);
 
-                                row.slice(1, 10).forEach(str => {
+                                row.slice(1, row.length).forEach(str => {
                                     var td = document.createElement('td');
                                     td.innerHTML = str;
                                     tr.appendChild(td);

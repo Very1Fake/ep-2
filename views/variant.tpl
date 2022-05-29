@@ -1,4 +1,11 @@
-% rebase('layout.tpl', title='Second Variant', nav_header='Second Variant', nav_link='/')
+% rebase('layout.tpl', title=title, nav_header=title, nav_link=link)
+
+% if variant == 2:
+<input type="hidden" id="target" value="/api/second_variant">
+% end
+% if variant == 3:
+<input type="hidden" id="target" value="/api/third_variant">
+% end
 
 <div class="container">
     <div class="row">
@@ -60,7 +67,17 @@
             <div class="d-flex align-items-center text-center h-100" id="no_result">
                 <h3 class="display-3 w-100">No Result Yet</h3>
             </div>
-            <div class="d-flex align-items-center justify-content-center h-100" id="loader_spinner" style="display: none!important;">
+            <div class="row" id="error_view">
+                <div class="col"></div>
+                <div class="col-6">
+                    <div class="card">
+
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+            <div class="d-flex align-items-center justify-content-center h-100" id="loader_spinner"
+                style="display: none!important;">
                 <div class="spinner-border spinner-style text-secondary" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
@@ -74,30 +91,26 @@
                             <th rowspan="2" scope="col">-ln r<sub>i.</sub></th>
                             <th rowspan="2" scope="col">Time between two consecutive requests</th>
                             <th rowspan="2" scope="col">Moment of receipt of the request</th>
-                            <th colspan="3" scope="col">Moment request was accepted</th>
+                            % if variant == 2:
+                                <th colspan="3" scope="col">Moment request was accepted</th>
+                            % end
+                            % if variant == 3:
+                                <th colspan="4" scope="col">Moment request was accepted</th>
+                            % end
                             <th colspan="2" scope="col">Counter</th>
                         </tr>
                         <tr>
                             <th>1</th>
                             <th>2</th>
                             <th>3</th>
+                            % if variant == 3:
+                                <th>4</th>
+                            % end
                             <th>Serviced requests</th>
                             <th>Rejections</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider" id="result_table_body">
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>0.31</td>
-                            <td>0.31</td>
-                            <td>0.312</td>
-                            <td>0.312</td>
-                            <td>0.312</td>
-                            <td>0.312</td>
-                            <td>0.312</td>
-                            <td>1</td>
-                            <td></td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
