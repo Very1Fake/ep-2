@@ -244,15 +244,15 @@
                 % if variant == 1:
                     <thead>
                         <tr>
-                            <th rowspan="3" scope="col">Request num.</th>
-                            <th rowspan="3" scope="col">Rand. num. r<sub>i</sub></th>
-                            <th rowspan="2" colspan="5" scope="col">-ln r<sub>i.</sub></th>
-                            <th colspan="7" scope="col">Time betwee</th>
+                            <th rowspan="3" scope="col">Number of test</th>
+                            <th rowspan="3" scope="col">Blocks</th>
+                            <th rowspan="2" colspan="5" scope="col">Random numbers, modeling elements</th>
+                            <th colspan="7" scope="col">Conclusion about the work</th>
                         </tr>
                         <tr>
-                            <th colspan="5" scope="col">Request num.</th>
-                            <th rowspan="2" scope="col">Rand. num. r<sub>i</sub></th>
-                            <th rowspan="2" scope="col">-ln r<sub>i.</sub></th>
+                            <th colspan="5" scope="col">elements</th>
+                            <th rowspan="2" scope="col">blocks</th>
+                            <th rowspan="2" scope="col">system</th>
                         </tr>
                         <tr>
                             <th>A</th>
