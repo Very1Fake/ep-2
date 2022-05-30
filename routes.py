@@ -55,7 +55,8 @@ def first_variant_api():
     E = float(request.forms.get('numE'))
     rowCount = int(request.forms.get('rowCount'))
     rows = monteKarloRemake(monteKarlo(rowCount, A, B, C, D, E))
-    # rows.append(['Итого',None,None,None,None,None,None,None,None,None,None,None,None,None])
+    
+    sleep(.5)
 
     return {'ok': rows}
 

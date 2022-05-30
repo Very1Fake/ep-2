@@ -1,47 +1,46 @@
 import random
 
-
-def monteKarlo(strNum, A, B, C, D, E):
+def monteKarlo(strNum, a, b, c, d, e):
 
     moduleWork = []
-    P = [('A', A), ('B', B), ('C', C), ('D', D), ('E', E)]
+    P = [('A', a), ('B', b), ('C', c), ('D', d), ('E', e)]
 
     for i in range(0, strNum, 1):
-        moduleWork.append({"Anum": round(random.random(), 4),
-                           "Bnum": round(random.random(), 4),
-                           "Cnum": round(random.random(), 4),
-                           "Dnum": round(random.random(), 4),
-                           "Enum": round(random.random(), 4),
-                           "Aresult": None,
-                           "Bresult": None,
-                           "Cresult": None,
-                           "Dresult": None,
-                           "Eresult": None,
+        moduleWork.append({"numA": round(random.random(), 4),
+                           "numB": round(random.random(), 4),
+                           "numC": round(random.random(), 4),
+                           "numD": round(random.random(), 4),
+                           "numE": round(random.random(), 4),
+                           "resultA": None,
+                           "resultB": None,
+                           "resultC": None,
+                           "resultD": None,
+                           "resultE": None,
                            "module1Work": None,
                            "module2Work": None,
                            "system": None})
 
     for work in moduleWork:
         for (name, num) in P:
-            if work[name + 'num'] > num:
-                work[name+'result'] = '-'
+            if work['num'+name] > num:
+                work['result'+name] = '-'
             else:
-                work[name+'result'] = '+'
+                work['result'+name] = '+'
 
-            if (work["Aresult"] == '+' or work["Bresult"] == '+' or work["Cresult"] == '+'):
-                work["module1Work"] = '+'
-            else:
-                work["module1Work"] = '-'
+        if (work["resultA"] == '+' or work["resultB"] == '+' or work["resultC"] == '+'):
+            work["module1Work"] = '+'
+        else:
+            work["module1Work"] = '-'
 
-            if (work["Dresult"] == '+' or work["Eresult"] == '+'):
-                work["module2Work"] = '+'
-            else:
-                work["module2Work"] = '-'
+        if (work["resultD"] == '+' or work["resultE"] == '+'):
+            work["module2Work"] = '+'
+        else:
+            work["module2Work"] = '-'
 
-            if(work["module1Work"] == '+' and work["module2Work"] == '+'):
-                work["system"] = '+'
-            else:
-                work["system"] = '-'
+        if(work["module1Work"] == '+' and work["module2Work"] == '+'):
+            work["system"] = '+'
+        else:
+            work["system"] = '-'
 
     return moduleWork
 
@@ -62,26 +61,31 @@ def reliabAnalitic_2Module(D, E):
     return 1-(1-D)*(1-E)
 
 
-def monteKarloRemake(monteKarloTable):
+def monteKarloRemake(monteKarloTable, a, b, c, d, e):
     newMonteKarloTable = []
     for row in range(0, len(monteKarloTable), 1):
         newMonteKarloTable.append([
             row+1,
             f'First<br>Second',
-            monteKarloTable[row]["Anum"],
-            monteKarloTable[row]["Bnum"],
-            monteKarloTable[row]["Cnum"],
-            monteKarloTable[row]["Dnum"],
-            monteKarloTable[row]["Enum"],
-            f'{monteKarloTable[row]["Aresult"]}<br>',
-            f'{monteKarloTable[row]["Bresult"]}<br>',
-            f'{monteKarloTable[row]["Cresult"]}<br>',
-            f'<br>{monteKarloTable[row]["Dresult"]}',
-            f'<br>{monteKarloTable[row]["Eresult"]}',
+            monteKarloTable[row]["numA"],
+            monteKarloTable[row]["numB"],
+            monteKarloTable[row]["numC"],
+            f'<br>{monteKarloTable[row]["numD"]}',
+            f'<br>{monteKarloTable[row]["numE"]}',
+            f'{monteKarloTable[row]["resultA"]}<br>',
+            f'{monteKarloTable[row]["resultB"]}<br>',
+            f'{monteKarloTable[row]["resultC"]}<br>',
+            f'<br>{monteKarloTable[row]["resultD"]}',
+            f'<br>{monteKarloTable[row]["resultE"]}',
             f'{monteKarloTable[row]["module1Work"]}<br>{monteKarloTable[row]["module2Work"]}',
             monteKarloTable[row]["system"]
         ])
+    p = round(round(reliabAnalitic_1Module(a, b, c), 4)
+              * round(reliabAnalitic_2Module(d, e), 4), 4)
+    newMonteKarloTable.append([None, None, None, None, None, None, '(stop)', None, None,
+                               f'P<sub>1</sub> = {round(reliabAnalitic_1Module(a, b, c),4)}',
+                               f'P<sub>2</sub> = {round(reliabAnalitic_2Module(d, e),4)}',
+                               f'P = {p}',
+                               f'P* = {round(relativeFrequecy(monteKarloTable), 4)}',
+                               f'|P-P*| = {abs(round(p - relativeFrequecy(monteKarloTable), 4))}'])
     return newMonteKarloTable
-
-
-print(monteKarloRemake(monteKarlo(5, 0.6, 0.6, 0.6, 0.6, 0.6)))
