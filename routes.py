@@ -1,5 +1,5 @@
 import math
-
+from utils import monteKarlo, monteKarloRemake
 from bottle import post, request, view, get
 
 
@@ -15,11 +15,15 @@ def about():
     return
 
 
-@get('/first_variant')
-@view('first_variant')
-def first_variant():
-    return
 
+@get('/first_variant')
+@view('variant')
+def first_variant():
+     return {
+        'title': 'First Variant',
+        'link': '/first_variant',
+        'variant': 1,
+    }
 
 @get('/second_variant')
 @view('variant')
@@ -40,19 +44,17 @@ def third_variant():
         'variant': 3,
     }
 
-
 @post('/api/first_variant')
 def first_variant_api():
 
-    import random  # FIX
-
-    # TODO Make validations
     A = float(request.forms.get('numA'))
     B = float(request.forms.get('numB'))
     C = float(request.forms.get('numC'))
     D = float(request.forms.get('numD'))
     E = float(request.forms.get('numE'))
     rowCount = int(request.forms.get('rowCount'))
+    rows = monteKarloRemake(monteKarlo(rowCount,A,B,C,D,E))
+    #rows.append(['Итого',None,None,None,None,None,None,None,None,None,None,None,None,None])
 
     return {'ok': rows}
 

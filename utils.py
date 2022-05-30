@@ -1,16 +1,15 @@
 import random
-
 def monteKarlo(strNum,A,B,C,D,E):
 
     moduleWork = []
     P = [('A', A), ('B', B),('C', C), ('D', D), ('E', E)]
 
     for i in range(0,strNum,1):
-        moduleWork.append({"Anum":random.random(),
-                           "Bnum":random.random(),
-                           "Cnum":random.random(),
-                           "Dnum":random.random(),
-                           "Enum":random.random(),
+        moduleWork.append({"Anum":round(random.random(), 4),
+                           "Bnum":round(random.random(), 4),
+                           "Cnum":round(random.random(), 4),
+                           "Dnum":round(random.random(), 4),
+                           "Enum":round(random.random(), 4),
                            "Aresult": None,
                            "Bresult": None,
                            "Cresult": None,
@@ -47,8 +46,8 @@ def monteKarlo(strNum,A,B,C,D,E):
 
 def relativeFrequecy(monteKarloTable):
     pluses = 0
-    for work in monteKarloTable:
-        if work["system"] == '+':
+    for row in monteKarloTable:
+        if row["system"] == '+':
             pluses=pluses+1
     return pluses/len(monteKarloTable)
 
@@ -57,3 +56,26 @@ def reliabAnalitic_1Module(A,B,C):
 
 def reliabAnalitic_2Module(D,E):
     return 1-(1-D)*(1-E)
+
+def monteKarloRemake(monteKarloTable):
+    newMonteKarloTable = []
+    for row in range(0,len(monteKarloTable),1):
+        newMonteKarloTable.append([
+            row+1,
+            f'First<br>Second',
+            monteKarloTable[row]["Anum"],
+            monteKarloTable[row]["Bnum"],
+            monteKarloTable[row]["Cnum"],
+            monteKarloTable[row]["Dnum"],
+            monteKarloTable[row]["Enum"],
+            f'{monteKarloTable[row]["Aresult"]}<br>',
+            f'{monteKarloTable[row]["Bresult"]}<br>',
+            f'{monteKarloTable[row]["Cresult"]}<br>',
+            f'<br>{monteKarloTable[row]["Dresult"]}',
+            f'<br>{monteKarloTable[row]["Eresult"]}',
+            f'{monteKarloTable[row]["module1Work"]}<br>{monteKarloTable[row]["module2Work"]}',
+            monteKarloTable[row]["system"]
+        ])
+    return newMonteKarloTable
+
+print(monteKarloRemake(monteKarlo(5,0.6,0.6,0.6,0.6,0.6)))
