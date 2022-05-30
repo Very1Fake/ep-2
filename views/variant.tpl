@@ -40,6 +40,9 @@
         <div class="col-12">
             <div class="row gy-3">
                 <div class="col-12">
+                    % if variant == 1:
+                    GHDFGDHGDF
+                    % end
                     % if variant == 2 or variant == 3:
                     A Poisson flow of requests enters a three-channel queuing system with a failure. The time between receipts of two consecutive applications is distributed according to the exponential law f(τ)=αe<sup>-ατ</sup>. The duration of servicing each request is 0.5 min. Find by the Monte Carlo method the mathematical expectation a of the number of serviced requests for the time T=4 min.
                     % end
@@ -55,6 +58,7 @@
                 <div class="card-header">Arguments</div>
                 <div class="card-body">
                     <form action="#" class="row g-3 needs-validation" novalidate>
+                     % if variant == 2 or variant == 3:
                         <div class="col-12">
                             <label for="t1-arg" class="form-label">The duration of each request</label>
                             <div class="input-group has-validation">
@@ -88,6 +92,82 @@
                                 </div>
                             </div>
                         </div>
+                        % end
+
+                        % if variant == 1:
+                        <div class="col-12">
+                            <label for="numA-arg" class="form-label">Probabilities of failure-free operation of element A of the first module</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="numA-arg-prepend">P(A)</span>
+                                <input type="number" class="form-control" id="numA-arg" name="numA"
+                                    area-describedby="numA-arg-prepend" min="0.0001" step="0.0001" value="0.5" max="1" required>
+                                <div class="invalid-feedback">
+                                    P(A) must be >=0.0001 or <=1
+                                </div>
+                            </div>
+                        </div>
+
+                      <div class="col-12">
+                            <label for="numB-arg" class="form-label">Probabilities of failure-free operation of element B of the first module</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="numB-arg-prepend">P(B)</span>
+                                <input type="number" class="form-control" id="numB-arg" name="numB"
+                                    area-describedby="numB-arg-prepend" min="0.0001" step="0.0001" value="0.5" max="1" required>
+                                <div class="invalid-feedback">
+                                    P(B) must be >=0.0001 or <=1
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12">
+                            <label for="numC-arg" class="form-label">Probabilities of failure-free operation of element C of the first module</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="numC-arg-prepend">P(C)</span>
+                                <input type="number" class="form-control" id="numC-arg" name="numC"
+                                    area-describedby="numC-arg-prepend" min="0.0001" step="0.0001" value="0.5" max="1" required>
+                                <div class="invalid-feedback">
+                                    P(C) must be >=0.0001 or <=1
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="numD-arg" class="form-label">Probabilities of failure-free operation of element D of the second module</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="numD-arg-prepend">P(D)</span>
+                                <input type="number" class="form-control" id="numD-arg" name="numD"
+                                    area-describedby="numD-arg-prepend" min="0.0001" step="0.0001" value="0.5" max="1" required>
+                                <div class="invalid-feedback">
+                                    P(D) must be >=0.0001 or <=1
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="numE-arg" class="form-label">Probabilities of failure-free operation of element E of the second module</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="numE-arg-prepend">P(E)</span>
+                                <input type="number" class="form-control" id="numE-arg" name="numE"
+                                    area-describedby="numE-arg-prepend" min="0.0001" step="0.0001" value="0.5" max="1" required>
+                                <div class="invalid-feedback">
+                                    P(E) must be >=0.0001 or <=1
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="rowCount-arg" class="form-label">Number of tests</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="rowCount-arg-prepend">Tests</span>
+                                <input type="number" class="form-control" id="rowCount-arg" name="rowCount"
+                                    area-describedby="rowCount-arg-prepend" min="1" value="100" max="9999" required>
+                                <div class="invalid-feedback">
+                                    Tests number must be >=1 or <=9999
+                                </div>
+                            </div>
+                        </div>
+                        % end
+
                         <div class="col-12">
                             <button class="btn btn-primary mt-3 w-100" type="submit" id="btn_submit">Submit</button>
                         </div>
@@ -120,7 +200,37 @@
             </div>
             <div class="table-responsive" id="result_table" hidden>
                 <table class="table table-striped table-bordered text-center">
+                % if variant == 1:
                     <thead>
+                        <tr>
+                            <th rowspan="3" scope="col">Request num.</th>
+                            <th rowspan="3" scope="col">Rand. num. r<sub>i</sub></th>
+                            <th rowspan="2" colspan="5" scope="col">-ln r<sub>i.</sub></th>
+                            <th colspan="7" scope="col">Time betwee</th>
+                        </tr>
+                        <tr>
+                            <th colspan="5" scope="col">Request num.</th>
+                            <th rowspan="2" scope="col">Rand. num. r<sub>i</sub></th>
+                            <th rowspan="2" scope="col">-ln r<sub>i.</sub></th>
+                        </tr>
+                        <tr>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                            <th>D</th>
+                            <th>E</th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                            <th>D</th>
+                            <th>E</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider" id="result_table_body">
+                    </tbody>
+                    % end    
+                % if variant == 2 or variant == 3:
+                <thead>
                         <tr>
                             <th rowspan="2" scope="col">Request num.</th>
                             <th rowspan="2" scope="col">Rand. num. r<sub>i</sub></th>
@@ -148,6 +258,7 @@
                     </thead>
                     <tbody class="table-group-divider" id="result_table_body">
                     </tbody>
+                    % end
                 </table>
             </div>
         </div>
