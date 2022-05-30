@@ -1,5 +1,8 @@
 % rebase('layout.tpl', title=title, nav_header=title, nav_link=link)
 
+% if variant == 1:
+<input type="hidden" id="target" value="/api/first_variant">
+% end
 % if variant == 2:
 <input type="hidden" id="target" value="/api/second_variant">
 % end
@@ -18,21 +21,55 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo reprehenderit aliquam, odit
-                        recusandae magni, magnam facilis accusamus aperiam atque obcaecati non est quia molestias ut
-                        libero, deleniti tenetur. Aliquam, temporibus!
-                        Quas possimus id fugiat ab pariatur recusandae repudiandae nemo ipsa debitis obcaecati cumque,
-                        dolore quae optio amet non totam illo. Dolore quo corporis assumenda eveniet nisi exercitationem
-                        nesciunt! Culpa, tenetur.
-                        Minima, atque, necessitatibus delectus sed voluptates nulla placeat amet saepe deserunt quidem,
-                        natus aspernatur sequi ducimus neque sapiente voluptas harum repellendus animi eos perferendis
-                        mollitia. Accusantium reprehenderit sit iure alias!
-                        Ad, soluta! Et quo ut amet eligendi error quis laboriosam inventore quisquam, eum culpa minima,
-                        libero illo nam rerum unde rem? Dolores molestiae, sed odit sapiente corporis ducimus tempore
-                        quo?
-                        Quod corporis eius molestias consequuntur unde, nulla sint ipsum, eligendi maiores fugit at
-                        rerum deserunt repellat maxime aliquam minus beatae nam, impedit laudantium eos placeat. Culpa
-                        vel facere vero praesentium?
+                    % if variant == 1:
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo reprehenderit aliquam, odit
+                            recusandae magni, magnam facilis accusamus aperiam atque obcaecati non est quia molestias ut
+                            libero, deleniti tenetur. Aliquam, temporibus!
+                            Quas possimus id fugiat ab pariatur recusandae repudiandae nemo ipsa debitis obcaecati cumque,
+                            dolore quae optio amet non totam illo. Dolore quo corporis assumenda eveniet nisi exercitationem
+                            nesciunt! Culpa, tenetur.
+                            Minima, atque, necessitatibus delectus sed voluptates nulla placeat amet saepe deserunt quidem,
+                            natus aspernatur sequi ducimus neque sapiente voluptas harum repellendus animi eos perferendis
+                            mollitia. Accusantium reprehenderit sit iure alias!
+                            Ad, soluta! Et quo ut amet eligendi error quis laboriosam inventore quisquam, eum culpa minima,
+                            libero illo nam rerum unde rem? Dolores molestiae, sed odit sapiente corporis ducimus tempore
+                            quo?
+                            Quod corporis eius molestias consequuntur unde, nulla sint ipsum, eligendi maiores fugit at
+                            rerum deserunt repellat maxime aliquam minus beatae nam, impedit laudantium eos placeat. Culpa
+                            vel facere vero praesentium?
+                        % end
+                        % if variant == 2 or variant == 3:
+                            <p>
+                                A Poisson flow of requests enters a three-channel queuing system with a failure. The time between receipts of two consecutive applications is distributed according to the exponential law f(τ)=5e<sup>-5τ</sup>
+                            </p>
+                            <p>
+                                Solution:
+                            </p>
+                            <p>
+                                Let  Т<sub>1</sub>=0 be the moment of receipt of the first request. The application will go to the first channel and will be served by it. The moment of the end of servicing the first request Т<sub>1</sub>+0.5=0+0.5=0.5. We write one in the counter of serviced requests.
+                            </p>
+                            <p>
+                            We will find the moments of receipt of subsequent requests by the formula Т<sub>i</sub>= Т<sub>i-1</sub>+τ i, where τ<sub>i</sub> - is the duration of time between two consecutive orders with numbers i-1 and i.
+                            </p>
+                            <p>
+                            Considering that, by condition, λ=5, we get τ = −0.2 ln r<sub>i</sub>.
+                            </p>
+                            <p>
+                            Random numbers r<sub>i</sub> are generated using a random number generator. Let the time between arrivals of the first and second applications be a random number equal to r<sub>1</sub>=0.10. Then τ<sub>2</sub>=−0.2∙ln(0.10)=0.460 The first request arrived at the Т<sub>1</sub>=0 Therefore, the second application arrived at the time T<sub>2</sub>=T<sub>1</sub>+0.460=0+0.460=0.460 At this moment, the first channel is still busy servicing the first request, so the second request will go to the second one and be served by it. The moment of the end of servicing the second request is T<sub>2</sub>+0.5=0.460+0.5=0.960. To the counter of serviced applications in doses. For the next random number r<sub>2</sub>=0.09, we will play the time τ<sub>3</sub> between the arrival of the second and third requests: τ<sub>3</sub>=−0.2∙ln(0.09)=0.2∙2.41=0.482.
+                            </p>
+                            <p>
+                                The second request was received at the moment T<sub>2</sub>=0.460. Therefore, the third order was received at the moment T<sub>3</sub>=T<sub>2</sub>+0.482=0.460+0.482=0.942. At this moment, the first channel is already free, and the third request will go to the first channel. The moment of the end of servicing the third request is T<sub>3</sub>+0.5=0.942+0.5=1.442. Add one to the counter of serviced requests. Further calculation is carried out similarly, moreover, if at the time of receipt of the application all channels are busy (the moment of receipt of the application is less than each of the moments of the end of service), then one is added to the failure counter.
+                            </p>
+                            <p>
+                                Note that the service of the 20th claim will end at time 4.148>4, so this claim is rejected. The test is terminated (in the table, "stop" is written) if the moment of receipt of the application is T>4.
+                            </p>
+                            <img src="/static/images/kelmytable.png" class="img-fluid rounded my-4 px-3" alt="...">
+                            <p>
+                                From the table we find that in 4 minutes a total of 20 applications were received; served x<sub>1</sub> =12. We perform five more tests in the same way, we get:
+                                x<sub>2</sub>=15, x<sub>3</sub>=14, x<sub>4</sub>=12, x<sub>5</sub>=13, x<sub>6</sub>=15.
+                                As an estimate of the desired mathematical expectation a - the number of serviced requests, we take the sample mean: a=vinculum(x)=(2∙12+13+14+2∙15)/6=13.5.
+                            </p>
+                        % end
                     </div>
                 </div>
             </div>
@@ -41,11 +78,15 @@
             <div class="row gy-3">
                 <div class="col-12">
                     % if variant == 1:
-                    GHDFGDHGDF
+                    The system consists of two blocks connected in series. The system fails if at least one block fails. The first block contains three elements: A, B, C, and the second - two elements: D, E. The elements of each block are connected in parallel. The block fails when all the elements included in it fail simultaneously. The probabilities of failure-free operation of elements P(A), P(B), P(C), P(D), P(E) are entered by the user.
                     % end
-                    % if variant == 2 or variant == 3:
-                    A Poisson flow of requests enters a three-channel queuing system with a failure. The time between receipts of two consecutive applications is distributed according to the exponential law f(τ)=αe<sup>-ατ</sup>. The duration of servicing each request is 0.5 min. Find by the Monte Carlo method the mathematical expectation a of the number of serviced requests for the time T=4 min.
+                    % if variant == 2:
+                        A Poisson flow of requests enters a three-channel queuing system with a failure. The time between receipts of two consecutive applications is distributed according to the exponential law f(τ)=αe<sup>-ατ</sup>. The duration of servicing each request is 0.5 min. Find by the Monte Carlo method the mathematical expectation a of the number of serviced requests for the time T=4 min.
                     % end
+                    % if variant == 3:
+                        A Poisson flow of requests enters a four-channel queuing system with an unlimited queue. The time between receipts of two consecutive applications is distributed according to the exponential law f(τ)=αe<sup>-ατ</sup>. The service time for each request is t1 min. Find by the Monte Carlo method the mathematical expectation a of the number of serviced requests for the time T=t2 hours.
+                        The values t1, t2 and α are set by the user.
+                     % end
                 </div>
                 <div class="offset-md-10 col-md-2 col-sm-12">
                     <button type="button" class="btn btn-outline-primary btn-sm w-100" data-bs-toggle="modal"
