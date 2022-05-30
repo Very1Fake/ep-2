@@ -40,19 +40,9 @@
         <div class="col-12">
             <div class="row gy-3">
                 <div class="col-12">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id deleniti natus deserunt
-                    optio maiores ipsa suscipit possimus praesentium. Expedita incidunt consectetur doloremque
-                    exercitationem
-                    alias sapiente iusto ipsum ad. Eos, ducimus!
-                    Praesentium voluptatum vel blanditiis minus cupiditate delectus. Voluptatum animi exercitationem
-                    asperiores
-                    beatae soluta laudantium doloribus aspernatur nesciunt eligendi dolorem consequatur consectetur aut
-                    a,
-                    magnam pariatur eos porro. Magnam, nihil eaque.
-                    Molestias quod alias voluptatibus? Iusto dignissimos eveniet, sequi earum accusantium at labore in
-                    similique
-                    assumenda praesentium, pariatur impedit? Magnam totam autem esse numquam in, magni delectus ab saepe
-                    architecto provident.
+                    % if variant == 2 or variant == 3:
+                    A Poisson flow of requests enters a three-channel queuing system with a failure. The time between receipts of two consecutive applications is distributed according to the exponential law f(τ)=αe<sup>-ατ</sup>. The duration of servicing each request is 0.5 min. Find by the Monte Carlo method the mathematical expectation a of the number of serviced requests for the time T=4 min.
+                    % end
                 </div>
                 <div class="offset-md-10 col-md-2 col-sm-12">
                     <button type="button" class="btn btn-outline-primary btn-sm w-100" data-bs-toggle="modal"
