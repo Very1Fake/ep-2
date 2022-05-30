@@ -86,7 +86,7 @@
                                 table_body.appendChild(table_row());
                             });
                             form.classList.remove('was-validated');
-                            
+
                             setStateToResult();
                         } else if ('error' in data) {
                             console.log("err");

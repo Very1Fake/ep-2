@@ -15,15 +15,15 @@ def about():
     return
 
 
-
 @get('/first_variant')
 @view('variant')
 def first_variant():
-     return {
+    return {
         'title': 'First Variant',
         'link': '/first_variant',
         'variant': 1,
     }
+
 
 @get('/second_variant')
 @view('variant')
@@ -44,6 +44,7 @@ def third_variant():
         'variant': 3,
     }
 
+
 @post('/api/first_variant')
 def first_variant_api():
 
@@ -53,8 +54,8 @@ def first_variant_api():
     D = float(request.forms.get('numD'))
     E = float(request.forms.get('numE'))
     rowCount = int(request.forms.get('rowCount'))
-    rows = monteKarloRemake(monteKarlo(rowCount,A,B,C,D,E))
-    #rows.append(['Итого',None,None,None,None,None,None,None,None,None,None,None,None,None])
+    rows = monteKarloRemake(monteKarlo(rowCount, A, B, C, D, E))
+    # rows.append(['Итого',None,None,None,None,None,None,None,None,None,None,None,None,None])
 
     return {'ok': rows}
 

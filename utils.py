@@ -1,24 +1,25 @@
 import random
-def monteKarlo(strNum,A,B,C,D,E):
+
+
+def monteKarlo(strNum, A, B, C, D, E):
 
     moduleWork = []
-    P = [('A', A), ('B', B),('C', C), ('D', D), ('E', E)]
+    P = [('A', A), ('B', B), ('C', C), ('D', D), ('E', E)]
 
-    for i in range(0,strNum,1):
-        moduleWork.append({"Anum":round(random.random(), 4),
-                           "Bnum":round(random.random(), 4),
-                           "Cnum":round(random.random(), 4),
-                           "Dnum":round(random.random(), 4),
-                           "Enum":round(random.random(), 4),
+    for i in range(0, strNum, 1):
+        moduleWork.append({"Anum": round(random.random(), 4),
+                           "Bnum": round(random.random(), 4),
+                           "Cnum": round(random.random(), 4),
+                           "Dnum": round(random.random(), 4),
+                           "Enum": round(random.random(), 4),
                            "Aresult": None,
                            "Bresult": None,
                            "Cresult": None,
-                           "Dresult":None,
+                           "Dresult": None,
                            "Eresult": None,
-                           "module1Work":None,
-                           "module2Work":None,
-                           "system":None});
-    
+                           "module1Work": None,
+                           "module2Work": None,
+                           "system": None})
 
     for work in moduleWork:
         for (name, num) in P:
@@ -26,7 +27,7 @@ def monteKarlo(strNum,A,B,C,D,E):
                 work[name+'result'] = '-'
             else:
                 work[name+'result'] = '+'
-        
+
             if (work["Aresult"] == '+' or work["Bresult"] == '+' or work["Cresult"] == '+'):
                 work["module1Work"] = '+'
             else:
@@ -44,22 +45,26 @@ def monteKarlo(strNum,A,B,C,D,E):
 
     return moduleWork
 
+
 def relativeFrequecy(monteKarloTable):
     pluses = 0
     for row in monteKarloTable:
         if row["system"] == '+':
-            pluses=pluses+1
+            pluses = pluses+1
     return pluses/len(monteKarloTable)
 
-def reliabAnalitic_1Module(A,B,C):
+
+def reliabAnalitic_1Module(A, B, C):
     return 1-(1-A)*(1-B)*(1-C)
 
-def reliabAnalitic_2Module(D,E):
+
+def reliabAnalitic_2Module(D, E):
     return 1-(1-D)*(1-E)
+
 
 def monteKarloRemake(monteKarloTable):
     newMonteKarloTable = []
-    for row in range(0,len(monteKarloTable),1):
+    for row in range(0, len(monteKarloTable), 1):
         newMonteKarloTable.append([
             row+1,
             f'First<br>Second',
@@ -78,4 +83,5 @@ def monteKarloRemake(monteKarloTable):
         ])
     return newMonteKarloTable
 
-print(monteKarloRemake(monteKarlo(5,0.6,0.6,0.6,0.6,0.6)))
+
+print(monteKarloRemake(monteKarlo(5, 0.6, 0.6, 0.6, 0.6, 0.6)))
