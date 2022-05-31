@@ -14,7 +14,8 @@
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item">Mail - <a
 							href="mailto:very1fake.coder@gmail.com">very1fake.coder@gmail.com</a></li>
-					<li class="list-group-item">Telegram - <a href="https://telegram.com/very1fake">@very1fake</a></li>
+					<li class="list-group-item">Telegram - <a href="https://telegram.com/very1fake"
+							target="_blank">@very1fake</a></li>
 				</ul>
 			</div>
 		</div>
@@ -29,20 +30,22 @@
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item">Mail - <a href="mailto:Ke1my@yandex.ru" class="link">Ke1my@yandex.ru</a>
 					</li>
-					<li class="list-group-item">VK - <a href="https://vk.com/ke1my" class="link">@ke1my</a></li>
+					<li class="list-group-item">VK - <a href="https://vk.com/ke1my" target="_blank">@ke1my</a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="col-lg-3 col-sm-12">
-			<div class="card">
+			<div class="card border-success">
 				<img src="https://avatars.githubusercontent.com/u/87665408?v=4" class="img-fluid rounded" alt="...">
 				<div class="card-body">
 					<h5 class="card-title">Funny Cat (Andrey Magazenkov)</h5>
 					<p class="card-text"><small class="text-muted">Worked at page with first variant.</small></p>
 				</div>
 				<ul class="list-group list-group-flush">
-					<li class="list-group-item">Mail - MaffinGame777@yandex.ru</li>
-					<li class="list-group-item">VK - @id69214074</li>
+					<li class="list-group-item">Mail - <a
+							href="mailto:MaffinGame777@yandex.ru">MaffinGame777@yandex.ru</a></li>
+					<li class="list-group-item">VK - <a href="https://vk.com/id696214074"
+							target="_blank">@id696214074</a></li>
 				</ul>
 			</div>
 		</div>
