@@ -1,2 +1,2 @@
-% rebase('layout.tpl', title='Homepage', nav_header='Homepage', nav_link='/')
-
+% rebase('layout.tpl', title='Homepage')
+% include('navbar.tpl', nav_header='Homepage', nav_link='/')

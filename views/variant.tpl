@@ -1,4 +1,5 @@
-% rebase('layout.tpl', title=title, nav_header=title, nav_link=link)
+% rebase('layout.tpl', title=title)
+% include('navbar.tpl', nav_header=title, nav_link=link)
 
 % if variant == 1:
 <input type="hidden" id="target" value="/api/first_variant">

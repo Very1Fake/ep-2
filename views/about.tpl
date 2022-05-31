@@ -1,4 +1,5 @@
-% rebase('layout.tpl', title='About', nav_header='About', nav_link='/')
+% rebase('layout.tpl', title='About')
+% include('navbar.tpl', nav_header='About', nav_link='/about')
 
 <div class="container">
 	<div class="row gy-5">
