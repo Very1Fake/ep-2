@@ -1,69 +1,47 @@
 import random
 from math import log, exp
 
-
 def monteKarlo(strNum, a, b, c, d, e):
-
-    moduleWork = []
-    P = [('A', a), ('B', b), ('C', c), ('D', d), ('E', e)]
+    monteKarloTable = []
+    pMass = [('A', round(a, 4)), ('B', round(b, 4)),
+             ('C', round(c, 4)), ('D', round(d, 4)), ('E', round(e, 4))]
 
     for i in range(0, strNum, 1):
-        moduleWork.append({"numA": round(random.random(), 4),
-                           "numB": round(random.random(), 4),
-                           "numC": round(random.random(), 4),
-                           "numD": round(random.random(), 4),
-                           "numE": round(random.random(), 4),
-                           "resultA": None,
-                           "resultB": None,
-                           "resultC": None,
-                           "resultD": None,
-                           "resultE": None,
-                           "module1Work": None,
-                           "module2Work": None,
-                           "system": None})
+        monteKarloTable.append({"numA": round(random.random(), 4),
+                                "numB": round(random.random(), 4),
+                                "numC": round(random.random(), 4),
+                                "numD": round(random.random(), 4),
+                                "numE": round(random.random(), 4),
+                                "resultA": None,
+                                "resultB": None,
+                                "resultC": None,
+                                "resultD": None,
+                                "resultE": None,
+                                "module1Work": None,
+                                "module2Work": None,
+                                "system": None})
 
-    for work in moduleWork:
-        for (name, num) in P:
-            if work['num'+name] > num:
-                work['result'+name] = '-'
+        for (name, num) in pMass:
+            if monteKarloTable[i]['num'+name] > num:
+                monteKarloTable[i]['result'+name] = '-'
             else:
-                work['result'+name] = '+'
+                monteKarloTable[i]['result'+name] = '+'
 
-        if (work["resultA"] == '+' or work["resultB"] == '+' or work["resultC"] == '+'):
-            work["module1Work"] = '+'
+        if monteKarloTable[i]["resultA"] == '+' or monteKarloTable[i]["resultB"] == '+' or monteKarloTable[i]["resultC"] == '+':
+            monteKarloTable[i]["module1Work"] = '+'
         else:
-            work["module1Work"] = '-'
+            monteKarloTable[i]["module1Work"] = '-'
 
-        if (work["resultD"] == '+' or work["resultE"] == '+'):
-            work["module2Work"] = '+'
+        if monteKarloTable[i]["resultD"] == '+' or monteKarloTable[i]["resultE"] == '+':
+            monteKarloTable[i]["module2Work"] = '+'
         else:
-            work["module2Work"] = '-'
+            monteKarloTable[i]["module2Work"] = '-'
 
-        if(work["module1Work"] == '+' and work["module2Work"] == '+'):
-            work["system"] = '+'
+        if monteKarloTable[i]["module1Work"] == '+' and monteKarloTable[i]["module2Work"] == '+':
+            monteKarloTable[i]["system"] = '+'
         else:
-            work["system"] = '-'
+            monteKarloTable[i]["system"] = '-'
 
-    return moduleWork
-
-
-def relativeFrequecy(monteKarloTable):
-    pluses = 0
-    for row in monteKarloTable:
-        if row["system"] == '+':
-            pluses = pluses+1
-    return pluses/len(monteKarloTable)
-
-
-def reliabAnalitic_1Module(A, B, C):
-    return 1-(1-A)*(1-B)*(1-C)
-
-
-def reliabAnalitic_2Module(D, E):
-    return 1-(1-D)*(1-E)
-
-
-def monteKarloRemake(monteKarloTable, a, b, c, d, e):
     newMonteKarloTable = []
     for row in range(0, len(monteKarloTable), 1):
         newMonteKarloTable.append([
@@ -82,15 +60,23 @@ def monteKarloRemake(monteKarloTable, a, b, c, d, e):
             f'{monteKarloTable[row]["module1Work"]}<br>{monteKarloTable[row]["module2Work"]}',
             monteKarloTable[row]["system"]
         ])
-    p = round(round(reliabAnalitic_1Module(a, b, c), 4)
-              * round(reliabAnalitic_2Module(d, e), 4), 4)
+
+    pluses = 0
+    for row in monteKarloTable:
+        if row["system"] == '+':
+            pluses = pluses+1
+    pStar = round(pluses/len(monteKarloTable), 4)
+
+    p1 = round((1-(1-a)*(1-b)*(1-c)), 4)
+    p2 = round((1-(1-d)*(1-e)), 4)
+    p = round(p1*p2, 4)
+
     newMonteKarloTable.append([None, None, None, None, None, None, '(stop)', None, None,
-                               f'P<sub>1</sub> = {round(reliabAnalitic_1Module(a, b, c),4)}',
-                               f'P<sub>2</sub> = {round(reliabAnalitic_2Module(d, e),4)}',
+                               f'P<sub>1</sub> = {p1}',
+                               f'P<sub>2</sub> = {p2}',
                                f'P = {p}',
-                               f'P* = {round(relativeFrequecy(monteKarloTable), 4)}',
-                               f'|P-P*| = {abs(round(p - relativeFrequecy(monteKarloTable), 4))}'])
-    return newMonteKarloTable
+                               f'P* = {pStar}',
+                               f'|P-P*| = {abs(p - pStar)}'])
 
 
 def get_tau(a, r):

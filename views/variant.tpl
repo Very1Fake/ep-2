@@ -182,7 +182,7 @@
                                     area-describedby="numA-arg-prepend" min="0.0001" step="0.0001" value="0.5" max="1"
                                     required>
                                 <div class="invalid-feedback">
-                                    P(A) must be >=0.0001 or <=1 </div>
+                                    P(A) must be &ge;0.0001 or &le;1 </div>
                                 </div>
                             </div>
 
@@ -195,7 +195,7 @@
                                         area-describedby="numB-arg-prepend" min="0.0001" step="0.0001" value="0.5"
                                         max="1" required>
                                     <div class="invalid-feedback">
-                                        P(B) must be >=0.0001 or <=1 </div>
+                                        P(B) must be &ge;0.0001 or &le;1 </div>
                                     </div>
                                 </div>
 
@@ -208,7 +208,7 @@
                                             area-describedby="numC-arg-prepend" min="0.0001" step="0.0001" value="0.5"
                                             max="1" required>
                                         <div class="invalid-feedback">
-                                            P(C) must be >=0.0001 or <=1 </div>
+                                            P(C) must be &ge;0.0001 or &le;1 </div>
                                         </div>
                                     </div>
 
@@ -221,7 +221,7 @@
                                                 area-describedby="numD-arg-prepend" min="0.0001" step="0.0001"
                                                 value="0.5" max="1" required>
                                             <div class="invalid-feedback">
-                                                P(D) must be >=0.0001 or <=1 </div>
+                                                P(D) must be &ge;0.0001 or &le;1 </div>
                                             </div>
                                         </div>
 
@@ -234,7 +234,7 @@
                                                     area-describedby="numE-arg-prepend" min="0.0001" step="0.0001"
                                                     value="0.5" max="1" required>
                                                 <div class="invalid-feedback">
-                                                    P(E) must be >=0.0001 or <=1 </div>
+                                                    P(E) must be &ge;0.0001 or &le;1 </div>
                                                 </div>
                                             </div>
 
@@ -247,7 +247,7 @@
                                                         name="rowCount" area-describedby="rowCount-arg-prepend" min="1"
                                                         value="100" max="9999" required>
                                                     <div class="invalid-feedback">
-                                                        Tests number must be >=1 or <=9999 </div>
+                                                        Tests number must be &ge;1 or &le;9999 </div>
                                                     </div>
                                                 </div>
                                                 % end

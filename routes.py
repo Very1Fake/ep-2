@@ -45,18 +45,17 @@ def third_variant():
     }
 
 
+
 @post('/api/first_variant')
 def first_variant_api():
 
-    A = float(request.forms.get('numA'))
-    B = float(request.forms.get('numB'))
-    C = float(request.forms.get('numC'))
-    D = float(request.forms.get('numD'))
-    E = float(request.forms.get('numE'))
+    a = float(request.forms.get('numA'))
+    b = float(request.forms.get('numB'))
+    c = float(request.forms.get('numC'))
+    d = float(request.forms.get('numD'))
+    e = float(request.forms.get('numE'))
     rowCount = int(request.forms.get('rowCount'))
-    rows = monteKarloRemake(monteKarlo(rowCount, A, B, C, D, E))
-    
-    sleep(.5)
+    rows = monteKarlo(rowCount, a, b, c, d, e)
 
     return {'ok': rows}
 
