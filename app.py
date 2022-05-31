@@ -7,7 +7,7 @@ import routes
 if __name__ == '__main__':
     PROJECT_ROOT = path.abspath(path.dirname(__file__))
     STATIC_ROOT = path.join(PROJECT_ROOT, 'static').replace('\\', '/')
-    HOST = environ.get('SERVER_HOST', 'localhost')
+    HOST = environ.get('SERVER_HOST', '0.0.0.0')
     try:
         PORT = int(environ.get('SERVER_PORT', '5555'))
     except ValueError:
