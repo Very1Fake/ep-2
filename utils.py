@@ -1,4 +1,6 @@
 import random
+from math import log, exp
+
 
 def monteKarlo(strNum, a, b, c, d, e):
 
@@ -89,3 +91,9 @@ def monteKarloRemake(monteKarloTable, a, b, c, d, e):
                                f'P* = {round(relativeFrequecy(monteKarloTable), 4)}',
                                f'|P-P*| = {abs(round(p - relativeFrequecy(monteKarloTable), 4))}'])
     return newMonteKarloTable
+
+
+def get_tau(a, r):
+    ln_r = log(r, exp(1))
+    tau = a * ln_r
+    return (tau, ln_r)
