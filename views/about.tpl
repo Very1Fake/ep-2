@@ -16,6 +16,8 @@
 							href="mailto:very1fake.coder@gmail.com">very1fake.coder@gmail.com</a></li>
 					<li class="list-group-item">Telegram - <a href="https://telegram.com/very1fake"
 							target="_blank">@very1fake</a></li>
+					<li class="list-group-item">Github - <a href="https://github.com/Very1Fake"
+							target="_blank">@Very1Fake</a></li>
 				</ul>
 			</div>
 		</div>
@@ -31,6 +33,8 @@
 					<li class="list-group-item">Mail - <a href="mailto:Ke1my@yandex.ru" class="link">Ke1my@yandex.ru</a>
 					</li>
 					<li class="list-group-item">VK - <a href="https://vk.com/ke1my" target="_blank">@ke1my</a></li>
+					<li class="list-group-item">Github - <a href="https://github.com/Ke1my" target="_blank">@Ke1my</a>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -46,6 +50,8 @@
 							href="mailto:MaffinGame777@yandex.ru">MaffinGame777@yandex.ru</a></li>
 					<li class="list-group-item">VK - <a href="https://vk.com/id696214074"
 							target="_blank">@id696214074</a></li>
+					<li class="list-group-item">Github - <a href="https://github.com/NormalPaporotnichek"
+							target="_blank">@NormalPaporotnichek</a></li>
 				</ul>
 			</div>
 		</div>
