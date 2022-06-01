@@ -23,21 +23,76 @@
                     </div>
                     <div class="modal-body">
                         % if variant == 1:
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo reprehenderit aliquam, odit
-                        recusandae magni, magnam facilis accusamus aperiam atque obcaecati non est quia molestias ut
-                        libero, deleniti tenetur. Aliquam, temporibus!
-                        Quas possimus id fugiat ab pariatur recusandae repudiandae nemo ipsa debitis obcaecati cumque,
-                        dolore quae optio amet non totam illo. Dolore quo corporis assumenda eveniet nisi exercitationem
-                        nesciunt! Culpa, tenetur.
-                        Minima, atque, necessitatibus delectus sed voluptates nulla placeat amet saepe deserunt quidem,
-                        natus aspernatur sequi ducimus neque sapiente voluptas harum repellendus animi eos perferendis
-                        mollitia. Accusantium reprehenderit sit iure alias!
-                        Ad, soluta! Et quo ut amet eligendi error quis laboriosam inventore quisquam, eum culpa minima,
-                        libero illo nam rerum unde rem? Dolores molestiae, sed odit sapiente corporis ducimus tempore
-                        quo?
-                        Quod corporis eius molestias consequuntur unde, nulla sint ipsum, eligendi maiores fugit at
-                        rerum deserunt repellat maxime aliquam minus beatae nam, impedit laudantium eos placeat. Culpa
-                        vel facere vero praesentium?
+                        <p>
+                            The system consists of two blocks connected in series.
+                            The system fails when at least one block fails. The first block contains
+                            two elements: A, B (they are connected in parallel) and fails when both
+                            elements fail simultaneously. The second one contains one element 
+                            with and fails when this element fails.
+                        </p>
+                        <p>
+                            a) Find by the Monte Carlo method an estimate of P*
+                            reliability (probability of failure-free operation)
+                            of the system, knowing the probability of failure-free operation
+                            of the elements: P(A)= 0.8, P (B)=0.85, P (C)= 0.6;
+                        </p>
+                            b) find the absolute error |P−P*| of the found value, where P
+                            is the reliability of the system, calculated analytically.
+                            Perform 50 tests.
+                        <p>
+                            Solution:
+                        </p>
+                        <p>
+                            a) Using a random number generator, we obtain 
+                            (or select from special tables of uniformly distributed random numbers)
+                            three random numbers, for example: 0.10, 0.09 and 0.73; then we consider
+                            that if the random number is less than the probability of the corresponding event,
+                            then the event has occurred (the element works flawlessly); if the random number
+                            is greater than or equal to the probability of the event, then the event has not
+                            occurred (failure).
+                        </p>
+                        <p>
+                            We will play out events A, B, C, consisting in the trouble-free operation
+                            of elements A, B, C, respectively. The test results will be recorded in the
+                            calculation table. Since P(A) = 0.8 and 0.10 &#60;0.8, the event has occurred,
+                            i.e. element A in this test works flawlessly. Since P(B)=0.85 and 0.09&#60;0.85,
+                            event B has occurred, i.e. element B works flawlessly.
+                        <p>    
+                            Thus, both elements of the first block work; therefore, the first block itself
+                            works. In the corresponding cells of Table 1, we put a plus sign (or 1).
+                        </p>
+                        <p>
+                            Since P(S)=0.6 and 0.73&#62;0.6, then event C has not occurred, i.e. element
+                            C is rejected; in other words, the second block, and hence the entire system,
+                            is rejected. In the corresponding cells of Table 1, we put a minus sign (or 0).
+                        </p>
+                        <p>
+                            The other tests are played out in the same way. Table 1 shows the results
+                            of four tests.
+                        </p>
+                        <img src="/static/images/first_variant_table.png" class="img-fluid rounded my-4 px-3" alt="...">
+                        <p>
+                            After performing 50 tests, we get that in 28 of them the system worked flawlessly.
+                            As an estimate of the desired reliability P, we will take the relative frequency
+                            P* = 28/50 = 0.56.
+                        </p>
+                        <p>
+                            b) We will find the reliability of the system P analytically.
+                            The probabilities of failure-free operation of the first and
+                            second blocks are equal, respectively:
+                        </p>
+                        <p>
+                            P<sub>1</sub>= 1-P(B&#773;)∙P(A&#773;) = 1-0.2∙0.15 = 0.97, P<sub>2</sub> = P(C) = 0.6
+                        </p>
+                        <p>
+                            The probability of failure-free operation of the system
+                        </p>
+                        <p>
+                            P = P<sub>1</sub>∙P<sub>2</sub> = 0.97∙0.6=0.582
+                        </p>
+                        <p>
+                            The required absolute error is equal to |P−P*| = 0.582−0.56 = 0.022.
+                        </p>
                         % end
                         % if variant == 2 or variant == 3:
                         <p>

@@ -20,7 +20,7 @@ def about():
 @view('variant')
 def first_variant():
     return {
-        'title': 'First Variant',
+        'title': 'First Variant: evaluation of the reliability of the simplest systems by the Monte Carlo method',
         'link': '/first_variant',
         'variant': 1,
     }
