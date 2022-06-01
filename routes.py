@@ -1,7 +1,8 @@
 import math
-from utils import monteKarlo, monteKarloRemake
+from utils import monteKarlo, checkMonteKarloTable
 from bottle import post, request, view, get
-
+from datetime import datetime
+import os
 
 @get('/')
 @view('index')
@@ -49,14 +50,23 @@ def third_variant():
 @post('/api/first_variant')
 def first_variant_api():
 
+    # Получение значений от пользователя
     a = float(request.forms.get('numA'))
     b = float(request.forms.get('numB'))
     c = float(request.forms.get('numC'))
     d = float(request.forms.get('numD'))
     e = float(request.forms.get('numE'))
-    rowCount = int(request.forms.get('rowCount'))
-    rows = monteKarlo(rowCount, a, b, c, d, e)
-
+    countOfTests = int(request.forms.get('rowCount'))
+    rows = monteKarlo(countOfTests, a, b, c, d, e)
+    
+    # Запись данных пользователя в текстовый файл
+    with open(os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')+"/monteKarloHistr.txt", "a+") as file:
+        file.write(str(datetime.now())+'; countOfTests:'+str(countOfTests)+'; A:'+str(a)+'; B:'+str(b)+'; C:'+str(c)+'; D:'+str(d)+'; E:'+str(e)+'\n')
+    
+    # Проверка на формат таблицы
+    if checkMonteKarloTable(rows, (countOfTests+1)) == False: 
+        return None
+        
     return {'ok': rows}
 
 

@@ -86,7 +86,7 @@ def monteKarlo(strNum, a, b, c, d, e): # Фунция для создания д
                                f'P<sub>2</sub> = {p2}',
                                f'P = {p}',
                                f'P* = {pStar}',
-                               f'|P-P*| = {abs(p - pStar)}'])
+                               f'|P-P*| = {round(abs(p - pStar), 4)}'])
     return newMonteKarloTable
 
 def getQuantityOfListElements(thisList): # Функция для вычисления кол-ва элементов
