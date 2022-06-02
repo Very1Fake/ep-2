@@ -340,64 +340,61 @@
             <div class="table-responsive" id="result_table" hidden>
                 <table class="table table-striped table-bordered text-center">
                     % if variant == 1:
-                    <thead>
-                        <tr>
-                            <th rowspan="3" scope="col">Number of test</th>
-                            <th rowspan="3" scope="col">Blocks</th>
-                            <th rowspan="2" colspan="5" scope="col">Random numbers, modeling elements</th>
-                            <th colspan="7" scope="col">Conclusion about the work</th>
-                        </tr>
-                        <tr>
-                            <th colspan="5" scope="col">elements</th>
-                            <th rowspan="2" scope="col">blocks</th>
-                            <th rowspan="2" scope="col">system</th>
-                        </tr>
-                        <tr>
-                            <th>A</th>
-                            <th>B</th>
-                            <th>C</th>
-                            <th>D</th>
-                            <th>E</th>
-                            <th>A</th>
-                            <th>B</th>
-                            <th>C</th>
-                            <th>D</th>
-                            <th>E</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-group-divider" id="result_table_body">
-                    </tbody>
+                    <tr>
+                        <th rowspan="3" scope="col">Number of test</th>
+                        <th rowspan="3" scope="col">Blocks</th>
+                        <th rowspan="2" colspan="5" scope="col">Random numbers, modeling elements</th>
+                        <th colspan="7" scope="col">Conclusion about the work</th>
+                    </tr>
+                    <tr>
+                        <th colspan="5" scope="col">elements</th>
+                        <th rowspan="2" scope="col">blocks</th>
+                        <th rowspan="2" scope="col">system</th>
+                    </tr>
+                    <tr>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                        <th>E</th>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                        <th>E</th>
+                    </tr>
                     % end
                     % if variant == 2 or variant == 3:
-                    <thead>
-                        <tr>
-                            <th rowspan="2" scope="col">Request num.</th>
-                            <th rowspan="2" scope="col">Rand. num. r<sub>i</sub></th>
-                            <th rowspan="2" scope="col">-ln r<sub>i.</sub></th>
-                            <th rowspan="2" scope="col">Time between two consecutive requests</th>
-                            <th rowspan="2" scope="col">Moment of receipt of the request</th>
-                            % if variant == 2:
-                            <th colspan="3" scope="col">Moment request was accepted</th>
-                            % end
-                            % if variant == 3:
-                            <th colspan="4" scope="col">Moment request was accepted</th>
-                            % end
-                            <th colspan="2" scope="col">Counter</th>
-                        </tr>
-                        <tr>
-                            <th>1</th>
-                            <th>2</th>
-                            <th>3</th>
-                            % if variant == 3:
-                            <th>4</th>
-                            % end
-                            <th>Serviced requests</th>
-                            <th>Rejections</th>
-                        </tr>
-                    </thead>
+                    <tr>
+                        <th rowspan="2" scope="col">Request num.</th>
+                        <th rowspan="2" scope="col">Rand. num. r<sub>i</sub></th>
+                        <th rowspan="2" scope="col">-ln r<sub>i.</sub></th>
+                        <th rowspan="2" scope="col">Time between two consecutive requests</th>
+                        <th rowspan="2" scope="col">Moment of receipt of the request</th>
+                        % if variant == 2:
+                        <th colspan="3" scope="col">Moment request will be processed</th>
+                        <th colspan="2" scope="col">Counter</th>
+                        % end
+                        % if variant == 3:
+                        <th colspan="4" scope="col">Moment request will be processed</th>
+                        <th rowspan="2" scope="col">Serviced requests</th>
+                        % end
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        % if variant == 3:
+                        <th>4</th>
+                        % end
+                        % if variant == 2:
+                        <th>Serviced requests</th>
+                        <th>Rejections</th>
+                        % end
+                    </tr>
+                    % end
                     <tbody class="table-group-divider" id="result_table_body">
                     </tbody>
-                    % end
                 </table>
             </div>
         </div>
