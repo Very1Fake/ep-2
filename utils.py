@@ -1,5 +1,8 @@
-import random
+from random import random
 from math import log, exp
+
+ROUND_DIGITS = 5
+RANDOM_RETRIES = 16
 
 
 def monteKarlo(strNum, a, b, c, d, e):  # Фунция для создания данных для таблицы
@@ -10,11 +13,11 @@ def monteKarlo(strNum, a, b, c, d, e):  # Фунция для создания �
     # создание списка с рандомными числами
     monteKarloTable = []
     for i in range(0, strNum, 1):
-        monteKarloTable.append({"numA": round(random.random(), 4),
-                                "numB": round(random.random(), 4),
-                                "numC": round(random.random(), 4),
-                                "numD": round(random.random(), 4),
-                                "numE": round(random.random(), 4),
+        monteKarloTable.append({"numA": round(random(), 4),
+                                "numB": round(random(), 4),
+                                "numC": round(random(), 4),
+                                "numD": round(random(), 4),
+                                "numE": round(random(), 4),
                                 "resultA": None,
                                 "resultB": None,
                                 "resultC": None,
@@ -111,6 +114,16 @@ def checkMonteKarloTable(monteKarloTable, strNum):
         return True
     else:
         return False
+
+
+def get_rand() -> float:
+    for i in range(RANDOM_RETRIES):
+        r = random()
+
+        if r != 0.0:
+            return round(r, ROUND_DIGITS)
+    else:
+        raise Exception
 
 
 def get_tau(a, r):
