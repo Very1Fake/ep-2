@@ -118,15 +118,15 @@ def checkMonteKarloTable(monteKarloTable, strNum):
 
 def get_rand() -> float:
     for i in range(RANDOM_RETRIES):
-        r = random()
+        r = round(random(), ROUND_DIGITS)
 
         if r != 0.0:
-            return round(r, ROUND_DIGITS)
+            return r
     else:
         raise Exception
 
 
 def get_tau(a, r):
-    ln_r = log(r, exp(1))
-    tau = a * ln_r
+    ln_r = round(-log(r, exp(1)), ROUND_DIGITS)
+    tau = round(a * ln_r, ROUND_DIGITS)
     return (tau, ln_r)
