@@ -27,7 +27,7 @@
                             The system consists of two blocks connected in series.
                             The system fails when at least one block fails. The first block contains
                             two elements: A, B (they are connected in parallel) and fails when both
-                            elements fail simultaneously. The second one contains one element 
+                            elements fail simultaneously. The second one contains one element
                             with and fails when this element fails.
                         </p>
                         <p>
@@ -36,14 +36,16 @@
                             of the system, knowing the probability of failure-free operation
                             of the elements: P(A)= 0.8, P (B)=0.85, P (C)= 0.6;
                         </p>
+                        <p>
                             b) find the absolute error |P−P*| of the found value, where P
                             is the reliability of the system, calculated analytically.
                             Perform 50 tests.
+                        </p>
                         <p>
                             Solution:
                         </p>
                         <p>
-                            a) Using a random number generator, we obtain 
+                            Using a random number generator, we obtain
                             (or select from special tables of uniformly distributed random numbers)
                             three random numbers, for example: 0.10, 0.09 and 0.73; then we consider
                             that if the random number is less than the probability of the corresponding event,
@@ -57,7 +59,7 @@
                             calculation table. Since P(A) = 0.8 and 0.10 &#60;0.8, the event has occurred,
                             i.e. element A in this test works flawlessly. Since P(B)=0.85 and 0.09&#60;0.85,
                             event B has occurred, i.e. element B works flawlessly.
-                        <p>    
+                        <p>
                             Thus, both elements of the first block work; therefore, the first block itself
                             works. In the corresponding cells of Table 1, we put a plus sign (or 1).
                         </p>
@@ -238,79 +240,76 @@
                                     required>
                                 <div class="invalid-feedback">
                                     P(A) must be &ge;0.0001 or &le;1 </div>
-                                </div>
                             </div>
+                        </div>
 
-                            <div class="col-12">
-                                <label for="numB-arg" class="form-label">Probabilities of failure-free operation of
-                                    element B of the first module</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text" id="numB-arg-prepend">P(B)</span>
-                                    <input type="number" class="form-control" id="numB-arg" name="numB"
-                                        area-describedby="numB-arg-prepend" min="0.0001" step="0.0001" value="0.5"
-                                        max="1" required>
-                                    <div class="invalid-feedback">
-                                        P(B) must be &ge;0.0001 or &le;1 </div>
-                                    </div>
-                                </div>
+                        <div class="col-12">
+                            <label for="numB-arg" class="form-label">Probabilities of failure-free operation of
+                                element B of the first module</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="numB-arg-prepend">P(B)</span>
+                                <input type="number" class="form-control" id="numB-arg" name="numB"
+                                    area-describedby="numB-arg-prepend" min="0.0001" step="0.0001" value="0.5" max="1"
+                                    required>
+                                <div class="invalid-feedback">
+                                    P(B) must be &ge;0.0001 or &le;1 </div>
+                            </div>
+                        </div>
 
-                                <div class="col-12">
-                                    <label for="numC-arg" class="form-label">Probabilities of failure-free operation of
-                                        element C of the first module</label>
-                                    <div class="input-group has-validation">
-                                        <span class="input-group-text" id="numC-arg-prepend">P(C)</span>
-                                        <input type="number" class="form-control" id="numC-arg" name="numC"
-                                            area-describedby="numC-arg-prepend" min="0.0001" step="0.0001" value="0.5"
-                                            max="1" required>
-                                        <div class="invalid-feedback">
-                                            P(C) must be &ge;0.0001 or &le;1 </div>
-                                        </div>
-                                    </div>
+                        <div class="col-12">
+                            <label for="numC-arg" class="form-label">Probabilities of failure-free operation of
+                                element C of the first module</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="numC-arg-prepend">P(C)</span>
+                                <input type="number" class="form-control" id="numC-arg" name="numC"
+                                    area-describedby="numC-arg-prepend" min="0.0001" step="0.0001" value="0.5" max="1"
+                                    required>
+                                <div class="invalid-feedback">
+                                    P(C) must be &ge;0.0001 or &le;1 </div>
+                            </div>
+                        </div>
 
-                                    <div class="col-12">
-                                        <label for="numD-arg" class="form-label">Probabilities of failure-free operation
-                                            of element D of the second module</label>
-                                        <div class="input-group has-validation">
-                                            <span class="input-group-text" id="numD-arg-prepend">P(D)</span>
-                                            <input type="number" class="form-control" id="numD-arg" name="numD"
-                                                area-describedby="numD-arg-prepend" min="0.0001" step="0.0001"
-                                                value="0.5" max="1" required>
-                                            <div class="invalid-feedback">
-                                                P(D) must be &ge;0.0001 or &le;1 </div>
-                                            </div>
-                                        </div>
+                        <div class="col-12">
+                            <label for="numD-arg" class="form-label">Probabilities of failure-free operation
+                                of element D of the second module</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="numD-arg-prepend">P(D)</span>
+                                <input type="number" class="form-control" id="numD-arg" name="numD"
+                                    area-describedby="numD-arg-prepend" min="0.0001" step="0.0001" value="0.5" max="1"
+                                    required>
+                                <div class="invalid-feedback">
+                                    P(D) must be &ge;0.0001 or &le;1 </div>
+                            </div>
+                        </div>
 
-                                        <div class="col-12">
-                                            <label for="numE-arg" class="form-label">Probabilities of failure-free
-                                                operation of element E of the second module</label>
-                                            <div class="input-group has-validation">
-                                                <span class="input-group-text" id="numE-arg-prepend">P(E)</span>
-                                                <input type="number" class="form-control" id="numE-arg" name="numE"
-                                                    area-describedby="numE-arg-prepend" min="0.0001" step="0.0001"
-                                                    value="0.5" max="1" required>
-                                                <div class="invalid-feedback">
-                                                    P(E) must be &ge;0.0001 or &le;1 </div>
-                                                </div>
-                                            </div>
+                        <div class="col-12">
+                            <label for="numE-arg" class="form-label">Probabilities of failure-free
+                                operation of element E of the second module</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="numE-arg-prepend">P(E)</span>
+                                <input type="number" class="form-control" id="numE-arg" name="numE"
+                                    area-describedby="numE-arg-prepend" min="0.0001" step="0.0001" value="0.5" max="1"
+                                    required>
+                                <div class="invalid-feedback">
+                                    P(E) must be &ge;0.0001 or &le;1 </div>
+                            </div>
+                        </div>
 
-                                            <div class="col-12">
-                                                <label for="rowCount-arg" class="form-label">Number of tests</label>
-                                                <div class="input-group has-validation">
-                                                    <span class="input-group-text"
-                                                        id="rowCount-arg-prepend">Tests</span>
-                                                    <input type="number" class="form-control" id="rowCount-arg"
-                                                        name="rowCount" area-describedby="rowCount-arg-prepend" min="1"
-                                                        value="100" max="9999" required>
-                                                    <div class="invalid-feedback">
-                                                        Tests number must be &ge;1 or &le;9999 </div>
-                                                    </div>
-                                                </div>
-                                                % end
+                        <div class="col-12">
+                            <label for="rowCount-arg" class="form-label">Number of tests</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="rowCount-arg-prepend">Tests</span>
+                                <input type="number" class="form-control" id="rowCount-arg" name="rowCount"
+                                    area-describedby="rowCount-arg-prepend" min="1" value="100" max="9999" required>
+                                <div class="invalid-feedback">
+                                    Tests number must be &ge;1 or &le;9999 </div>
+                            </div>
+                        </div>
+                        % end
 
-                                                <div class="col-12">
-                                                    <button class="btn btn-primary mt-3 w-100" type="submit"
-                                                        id="btn_submit">Submit</button>
-                                                </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary mt-3 w-100" type="submit" id="btn_submit">Submit</button>
+                        </div>
                     </form>
                 </div>
             </div>

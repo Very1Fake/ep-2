@@ -2,10 +2,10 @@ import random
 from math import log, exp
 
 
-def monteKarlo(strNum, a, b, c, d, e): # Фунция для создания данных для таблицы
+def monteKarlo(strNum, a, b, c, d, e):  # Фунция для создания данных для таблицы
     pMass = [('A', round(a, 4)), ('B', round(b, 4)),
              ('C', round(c, 4)), ('D', round(d, 4)),
-            ('E', round(e, 4))] # создание списка со значениями пользователя 
+             ('E', round(e, 4))]  # создание списка со значениями пользователя
 
     # создание списка с рандомными числами
     monteKarloTable = []
@@ -48,7 +48,7 @@ def monteKarlo(strNum, a, b, c, d, e): # Фунция для создания д
         else:
             monteKarloTable[i]["system"] = '-'
 
-    # переделываем список в нужный для таблицы формат 
+    # переделываем список в нужный для таблицы формат
     newMonteKarloTable = []
     for row in range(0, len(monteKarloTable), 1):
         newMonteKarloTable.append([
@@ -68,7 +68,7 @@ def monteKarlo(strNum, a, b, c, d, e): # Фунция для создания д
             monteKarloTable[row]["system"]
         ])
 
-    # вычисляем искомую надёжность системы (P*) 
+    # вычисляем искомую надёжность системы (P*)
     pluses = 0
     for row in monteKarloTable:
         if row["system"] == '+':
@@ -89,7 +89,9 @@ def monteKarlo(strNum, a, b, c, d, e): # Фунция для создания д
                                f'|P-P*| = {round(abs(p - pStar), 4)}'])
     return newMonteKarloTable
 
-def getQuantityOfListElements(thisList): # Функция для вычисления кол-ва элементов
+
+# Функция для вычисления кол-ва элементов
+def getQuantityOfListElements(thisList):
     counter = 0
     if isinstance(thisList, list):
         for element in thisList:
@@ -98,20 +100,20 @@ def getQuantityOfListElements(thisList): # Функция для вычисле�
         counter += 1
     return counter
 
-def checkMonteKarloTable(monteKarloTable, strNum): # Функция с проверкой на формат таблицы
-    strCounter = 0;
+
+# Функция с проверкой на формат таблицы
+def checkMonteKarloTable(monteKarloTable, strNum):
+    strCounter = 0
     for str in monteKarloTable:
-        strCounter+=1
+        strCounter += 1
 
     if getQuantityOfListElements(monteKarloTable) == strNum*14 and strNum == strCounter:
         return True
     else:
         return False
 
+
 def get_tau(a, r):
     ln_r = log(r, exp(1))
     tau = a * ln_r
     return (tau, ln_r)
-
-
-

@@ -4,6 +4,7 @@ from bottle import post, request, view, get
 from datetime import datetime
 import os
 
+
 @get('/')
 @view('index')
 def index():
@@ -46,7 +47,6 @@ def third_variant():
     }
 
 
-
 @post('/api/first_variant')
 def first_variant_api():
 
@@ -58,15 +58,16 @@ def first_variant_api():
     e = float(request.forms.get('numE'))
     countOfTests = int(request.forms.get('rowCount'))
     rows = monteKarlo(countOfTests, a, b, c, d, e)
-    
+
     # Запись данных пользователя в текстовый файл
     with open(os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')+"/monteKarloHistr.txt", "a+") as file:
-        file.write(str(datetime.now())+'; countOfTests:'+str(countOfTests)+'; A:'+str(a)+'; B:'+str(b)+'; C:'+str(c)+'; D:'+str(d)+'; E:'+str(e)+'\n')
-    
+        file.write(str(datetime.now())+'; countOfTests:'+str(countOfTests)+'; A:' +
+                   str(a)+'; B:'+str(b)+'; C:'+str(c)+'; D:'+str(d)+'; E:'+str(e)+'\n')
+
     # Проверка на формат таблицы
-    if checkMonteKarloTable(rows, (countOfTests+1)) == False: 
+    if checkMonteKarloTable(rows, (countOfTests+1)) == False:
         return None
-        
+
     return {'ok': rows}
 
 
