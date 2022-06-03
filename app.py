@@ -17,6 +17,9 @@ if __name__ == '__main__':
     if not path.isfile('./results_tv.log'):
         open('./results_tv.log', 'w+')
 
+    if not path.isfile('./second_variant_results_tv.log'):
+        open('./second_variant_results_tv.log', 'w+')
+
     @bottle.route('/static/<filepath:path>')
     def server_static(filepath):
         return bottle.static_file(filepath, root=STATIC_ROOT)

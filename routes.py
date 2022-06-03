@@ -5,7 +5,7 @@ from json import dump
 import os
 
 from parsers import parse_sv_tv
-from utils import monteKarlo, checkMonteKarloTable, ROUND_DIGITS, third_variant_calc
+from utils import monteKarlo, checkMonteKarloTable, ROUND_DIGITS, third_variant_calc, get_tau, get_rand
 
 
 @get('/')
@@ -75,33 +75,94 @@ def first_variant_api():
 
 @post('/api/second_variant')
 def second_variant_api():
-    import random  # FIX
-
     # TODO Make validations
+    # Describes how long request will take time to be processed
     t1 = float(request.forms.get('t1'))
+    # How long to run algorithm
     t2 = float(request.forms.get('t2'))
-    a = int(request.forms.get('a'))
+    # Multiplier for TAU
+    a = float(request.forms.get('a'))
 
     rows = []
-    total = 0
+    passed = 1
+    refused = 0
+    c = [t1, 0, 0]
+    count = 1
+    total_time = 0
 
-    for row in range(a):
-        current = random.random()
+    c1 = total_time + t1
+    rows.append([
+        count,
+        '-',
+        '-',
+        '-  ',
+        total_time,
+        c1,
+        '-',
+        '-',
+        '+',
+        '-',
+    ])
+
+    while True:
+        channel = -1
+        passes = True
+        count += 1
+        r = get_rand()
+        (ln_r, tau) = get_tau(a, r)
+        #Stop
+        total_time = round(total_time + tau, ROUND_DIGITS)
+        if (total_time / 60) > t2 or count > 1000000:
+            break
+
+        for i in range(3):
+            if c[i] <= total_time:
+                channel = i
+                c[i] = round(total_time + t1, ROUND_DIGITS)
+                break
+        else:
+            refused += 1
+            passes = False
 
         rows.append([
-            row + 1,
-            round(random.random(), 2),
-            round(random.random(), 2),
-            round(total - current, 3),
-            round(total, 3),
-            round(total + t1, 3),
-            '2',
-            '3',
-            '1',
-            '2',
+            count,
+            r,
+            ln_r,
+            tau,
+            total_time,
+            c[0] if channel == 0 else '-',
+            c[1] if channel == 1 else '-',
+            c[2] if channel == 2 else '-',
+            '+' if passes else '-',
+            '-' if passes else '+'
         ])
 
-        total += current
+        if passes:
+            passed += 1
+        if (total_time / 60) > t2 or count > 1000:
+            break
+
+    rows.append([
+        '',
+        '',
+        '',
+        '',
+        '&lt;stop&gt;',
+        '',
+        '',
+        '',
+        f'X<sub>i</sub>={passed}',
+        f'refused={refused}'
+    ])
+
+    with open(f'./second_variant_results_tv.log', 'a') as file:
+        file.write("\n")
+        dump({
+            "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "t1": t1,
+            "t2": t2,
+            "a": a,
+        }, file)
 
     sleep(.5)
 
