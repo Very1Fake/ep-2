@@ -14,8 +14,8 @@ if __name__ == '__main__':
     except ValueError:
         PORT = 8080
 
-    if not path.isdir('./results_tv'):
-        os.mkdir('./results_tv')
+    if not path.isfile('./results_tv.log'):
+        open('./results_tv.log', 'w+')
 
     @bottle.route('/static/<filepath:path>')
     def server_static(filepath):

@@ -129,11 +129,13 @@ def third_variant_api():
     rows = third_variant_calc(t1, t2, a)
 
     # Save result to file
-    now = datetime.now()
-    with open(f'./results_tv/result_{now.strftime("%Y-%m-%d_%H:%M:%S")}.json', 'w+') as file:
+    with open(f'./results_tv.log', 'a') as file:
+        file.write("\n")
         dump({
-            "date": now.strftime("%Y-%m-%d %H:%M:%S"),
-            "rows": rows,
+            "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "t1": t1,
+            "t2": t2,
+            "a": a,
         }, file)
 
     sleep(.5)
