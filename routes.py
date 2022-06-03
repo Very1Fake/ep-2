@@ -1,6 +1,7 @@
 from bottle import post, request, view, get
 from datetime import datetime
 from time import sleep
+from json import dump
 import os
 
 from utils import monteKarlo, checkMonteKarloTable, get_tau, ROUND_DIGITS, get_rand
@@ -186,6 +187,13 @@ def third_variant_api():
         '',
         f'X<sub>i</sub>={passed}',
     ])
+
+    now = datetime.now()
+    with open(f'results_tv/result_{now.strftime("%Y-%m-%d_%H:%M:%S")}.json', 'w+') as file:
+        dump({
+            "date": now.strftime("%Y-%m-%d %H:%M:%S"),
+            "rows": rows,
+        }, file)
 
     sleep(.5)
 

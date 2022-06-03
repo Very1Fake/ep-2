@@ -1,5 +1,6 @@
-from os import path, environ
 import bottle
+import os
+from os import path, environ
 
 import routes
 
@@ -12,6 +13,9 @@ if __name__ == '__main__':
         PORT = int(environ.get('SERVER_PORT', '5555'))
     except ValueError:
         PORT = 8080
+
+    if not path.isdir('./results_tv'):
+        os.mkdir('./results_tv')
 
     @bottle.route('/static/<filepath:path>')
     def server_static(filepath):
