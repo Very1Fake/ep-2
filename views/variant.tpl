@@ -200,6 +200,7 @@
                                 <span class="input-group-text" id="t1-arg-prepend">t<sub>1</sub></span>
                                 <input type="number" class="form-control" id="t1-arg" name="t1"
                                     area-describedby="t1-arg-prepend" min="0.5" step="0.5" value="1" required>
+                                <span class="input-group-text">minutes</span>
                                 <div class="invalid-feedback">
                                     t<sub>1</sub> must be equal or greater than 0.5
                                 </div>
@@ -211,6 +212,7 @@
                                 <span class="input-group-text" id="t2-arg-prepend">t<sub>2</sub></span>
                                 <input type="number" class="form-control" id="t2-arg" name="t2"
                                     area-describedby="t2-arg-prepend" min="0.1" step="0.1" value="2" required>
+                                <span class="input-group-text">hours</span>
                                 <div class="invalid-feedback">
                                     t<sub>2</sub> must be equal or greater than 0.1
                                 </div>

@@ -145,6 +145,8 @@ def third_variant_calc(t1, t2, a):
         (ln_r, tau) = get_tau(a, r)
 
         total_time = round(total_time + tau, ROUND_DIGITS)
+        if (total_time / 60) > t2 or count > 1000000:
+            break
 
         for i in range(4):
             if c[i] <= total_time:
@@ -172,8 +174,6 @@ def third_variant_calc(t1, t2, a):
 
         if passes:
             passed += 1
-        if (total_time / 60) > t2 or count > 1000:
-            break
 
     rows.append([
         '',
@@ -192,7 +192,7 @@ def third_variant_calc(t1, t2, a):
 
 
 def get_rand() -> float:
-    for i in range(RANDOM_RETRIES):
+    for _ in range(RANDOM_RETRIES):
         r = round(random(), ROUND_DIGITS)
 
         if r != 0.0:
