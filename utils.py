@@ -116,6 +116,81 @@ def checkMonteKarloTable(monteKarloTable, strNum):
         return False
 
 
+def third_variant_calc(t1, t2, a):
+    rows = []
+    passed = 1
+    c = [0, 0, 0, 0]
+    count = 1
+    total_time = 0
+
+    c1 = total_time + t1
+    rows.append([
+        count,
+        '',
+        '',
+        '',
+        total_time,
+        c1,
+        '',
+        '',
+        '',
+        '1',
+    ])
+
+    while True:
+        channel = -1
+        passes = True
+        count += 1
+        r = get_rand()
+        (ln_r, tau) = get_tau(a, r)
+
+        total_time = round(total_time + tau, ROUND_DIGITS)
+
+        for i in range(4):
+            if c[i] <= total_time:
+                channel = i
+                c[i] = round(total_time + t1, ROUND_DIGITS)
+                break
+        else:
+            nearest = c.index(min(c))
+            total_time = c[nearest]
+            c[nearest] = round(total_time + t1, ROUND_DIGITS)
+            channel = nearest
+
+        rows.append([
+            count,
+            r,
+            ln_r,
+            tau,
+            total_time,
+            c[0] if channel == 0 else '-',
+            c[1] if channel == 1 else '-',
+            c[2] if channel == 2 else '-',
+            c[3] if channel == 3 else '-',
+            '1' if passes else '-',
+        ])
+
+        if passes:
+            passed += 1
+        if (total_time / 60) > t2 or count > 1000:
+            break
+
+    rows.append([
+        '',
+        '',
+        '',
+        '',
+        '&lt;stop&gt;',
+        '',
+        '',
+        '',
+        '',
+        f'X<sub>i</sub>={passed}',
+    ])
+
+    return rows
+
+
 def get_rand() -> float:
     for i in range(RANDOM_RETRIES):
         r = round(random(), ROUND_DIGITS)

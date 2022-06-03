@@ -199,9 +199,9 @@
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="t1-arg-prepend">t<sub>1</sub></span>
                                 <input type="number" class="form-control" id="t1-arg" name="t1"
-                                    area-describedby="t1-arg-prepend" min="0.1" step="0.1" value="0.5" required>
+                                    area-describedby="t1-arg-prepend" min="0.5" step="0.5" value="1" required>
                                 <div class="invalid-feedback">
-                                    t<sub>1</sub> must be equal or greater than 0.1
+                                    t<sub>1</sub> must be equal or greater than 0.5
                                 </div>
                             </div>
                         </div>

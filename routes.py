@@ -4,7 +4,8 @@ from time import sleep
 from json import dump
 import os
 
-from utils import monteKarlo, checkMonteKarloTable, get_tau, ROUND_DIGITS, get_rand
+from parsers import parse_sv_tv
+from utils import monteKarlo, checkMonteKarloTable, ROUND_DIGITS, third_variant_calc
 
 
 @get('/')
@@ -110,83 +111,21 @@ def second_variant_api():
 @post('/api/third_variant')
 def third_variant_api():
     # TODO Make validations
-    # Describes how long request will take time to be processed
-    t1 = float(request.forms.get('t1'))
-    # How long to run algorithm
-    t2 = float(request.forms.get('t2'))
-    # Multiplier for TAU
-    a = float(request.forms.get('a'))
+    args = parse_sv_tv(
+        # Describes how long request will take time to be processed
+        request.forms.get('t1'),
+        # How long to run algorithm
+        request.forms.get('t2'),
+        # Multiplier for TAU
+        request.forms.get('a'),
+    )
 
-    rows = []
-    passed = 1
-    c = [0, 0, 0, 0]
-    count = 1
-    total_time = 0
+    if isinstance(args, str):
+        return {'error': args}
+    else:
+        (t1, t2, a) = args
 
-    c1 = total_time + t1
-    rows.append([
-        count,
-        '',
-        '',
-        '',
-        total_time,
-        c1,
-        '',
-        '',
-        '',
-        '1',
-    ])
-
-    while True:
-        channel = -1
-        passes = True
-        count += 1
-        r = get_rand()
-        (ln_r, tau) = get_tau(a, r)
-
-        total_time = round(total_time + tau, ROUND_DIGITS)
-
-        for i in range(4):
-            if c[i] <= total_time:
-                channel = i
-                c[i] = round(total_time + t1, ROUND_DIGITS)
-                break
-        else:
-            nearest = c.index(min(c))
-            total_time = c[nearest]
-            c[nearest] = round(total_time + t1, ROUND_DIGITS)
-            channel = nearest
-
-        rows.append([
-            count,
-            r,
-            ln_r,
-            tau,
-            total_time,
-            c[0] if channel == 0 else '-',
-            c[1] if channel == 1 else '-',
-            c[2] if channel == 2 else '-',
-            c[3] if channel == 3 else '-',
-            '1' if passes else '-',
-        ])
-
-        if passes:
-            passed += 1
-        if (total_time / 60) > t2 or count > 1000:
-            break
-
-    rows.append([
-        '',
-        '',
-        '',
-        '',
-        '&lt;stop&gt;',
-        '',
-        '',
-        '',
-        '',
-        f'X<sub>i</sub>={passed}',
-    ])
+    rows = third_variant_calc(t1, t2, a)
 
     now = datetime.now()
     with open(f'results_tv/result_{now.strftime("%Y-%m-%d_%H:%M:%S")}.json', 'w+') as file:
