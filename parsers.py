@@ -1,3 +1,4 @@
+# Validate and parse arguments
 def parse_sv_tv(t1, t2, a):
     try:
         t1 = float(t1)

@@ -108,9 +108,9 @@ def second_variant_api():
     return {'ok': rows}
 
 
+# API route for third variant
 @post('/api/third_variant')
 def third_variant_api():
-    # TODO Make validations
     args = parse_sv_tv(
         # Describes how long request will take time to be processed
         request.forms.get('t1'),
@@ -120,6 +120,7 @@ def third_variant_api():
         request.forms.get('a'),
     )
 
+    # Handle error from validation
     if isinstance(args, str):
         return {'error': args}
     else:
@@ -127,8 +128,9 @@ def third_variant_api():
 
     rows = third_variant_calc(t1, t2, a)
 
+    # Save result to file
     now = datetime.now()
-    with open(f'results_tv/result_{now.strftime("%Y-%m-%d_%H:%M:%S")}.json', 'w+') as file:
+    with open(f'./results_tv/result_{now.strftime("%Y-%m-%d_%H:%M:%S")}.json', 'w+') as file:
         dump({
             "date": now.strftime("%Y-%m-%d %H:%M:%S"),
             "rows": rows,
