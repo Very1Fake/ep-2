@@ -210,20 +210,20 @@
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="t2-arg-prepend">t<sub>2</sub></span>
                                 <input type="number" class="form-control" id="t2-arg" name="t2"
-                                    area-describedby="t2-arg-prepend" min="0.5" step="0.5" value="2" required>
+                                    area-describedby="t2-arg-prepend" min="0.1" step="0.1" value="2" required>
                                 <div class="invalid-feedback">
-                                    t<sub>2</sub> must be equal or greater than 0.5
+                                    t<sub>2</sub> must be equal or greater than 0.1
                                 </div>
                             </div>
                         </div>
                         <div class="col-12">
-                            <label for="a-arg" class="form-label">Number of requests served</label>
+                            <label for="a-arg" class="form-label">Multiplier for TAU</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="a-arg-prepend">a</span>
                                 <input type="number" class="form-control" id="a-arg" name="a"
-                                    area-describedby="a-arg-prepend" min="1" value="25" required>
+                                    area-describedby="a-arg-prepend" min="0.1" value="1" step="0.1" required>
                                 <div class="invalid-feedback">
-                                    a must be greater than 1
+                                    a must be greater than 0.01
                                 </div>
                             </div>
                         </div>
