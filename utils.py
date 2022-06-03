@@ -116,11 +116,17 @@ def checkMonteKarloTable(monteKarloTable, strNum):
         return False
 
 
+# Logic for third variant
 def third_variant_calc(t1, t2, a):
+    # Table rows
     rows = []
+    # Counter for successful requests
     passed = 1
+    # Channels
     c = [0, 0, 0, 0]
+    # Simulation tries
     count = 1
+    # Total 
     total_time = 0
 
     c1 = total_time + t1
@@ -137,11 +143,13 @@ def third_variant_calc(t1, t2, a):
         '1',
     ])
 
+    # Simulation cycle
     while True:
         channel = -1
         passes = True
         count += 1
         r = get_rand()
+        # Calc TAU
         (ln_r, tau) = get_tau(a, r)
 
         total_time = round(total_time + tau, ROUND_DIGITS)
