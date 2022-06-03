@@ -221,7 +221,7 @@
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="a-arg-prepend">a</span>
                                 <input type="number" class="form-control" id="a-arg" name="a"
-                                    area-describedby="a-arg-prepend" min="0.1" value="1" step="0.1" required>
+                                    area-describedby="a-arg-prepend" min="0.01" value="1" step="0.01" required>
                                 <div class="invalid-feedback">
                                     a must be greater than 0.01
                                 </div>
