@@ -1,6 +1,7 @@
 (() => {
     'use strict'
 
+    // Get element object
     const forms = document.querySelectorAll('.needs-validation');
     const target = document.getElementById('target');
     const button = document.getElementById('btn_submit');
@@ -12,6 +13,7 @@
     const table = document.getElementById('result_table');
     const table_body = document.getElementById('result_table_body');
 
+    // Switch state to show lading spinner
     function setStateToLoading() {
         console.debug('State set to loading');
         button.disabled = true;
@@ -20,6 +22,7 @@
         table.hidden = true;
     }
 
+    // Switch state to show error
     function setStateToError(header, message) {
         console.debug('State set to result');
         button.disabled = false;
@@ -30,6 +33,7 @@
         table.hidden = true;
     }
 
+    // Switch state to show results
     function setStateToResult() {
         console.debug('State set to result');
         button.disabled = false;
@@ -38,6 +42,7 @@
         table.hidden = false;
     }
 
+    // Event handler to form
     Array.from(forms).forEach(form => {
         form.addEventListener('submit', event => {
             let is_checked = form.checkValidity();
@@ -45,9 +50,12 @@
             event.preventDefault()
             event.stopPropagation()
 
+            // Form validation
             if (is_checked) {
                 no_result.style.setProperty('display', 'none', 'important');
                 setStateToLoading();
+
+                // XHR request
                 fetch(target.value, {
                     method: 'POST',
                     body: new FormData(form),
@@ -66,6 +74,7 @@
                             let result = data['ok'];
                             table_body.innerHTML = '';
 
+                            // Table filling code
                             result.forEach(row => {
                                 function table_row() {
                                     let tr = document.createElement('tr');
@@ -89,17 +98,21 @@
 
                             setStateToResult();
                         } else if ('error' in data) {
+                            // Server error handling
                             console.log("err");
                             setStateToError("Bad Result", data['error']);
                         } else {
+                            // Format error handling
                             console.log("none");
                             setStateToError("Invalid format", 'Response has neither "ok" nor "error" field');
                         }
                     } else {
+                        // Request error handling
                         console.error("Request Failed");
                         return Promise.reject((data && data.message) || response.status);
                     }
                 }).catch(error => {
+                    // Switch state to error
                     console.error("Request Failed");
                     setStateToError("Request Failed", error);
                 });
